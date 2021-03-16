@@ -36,6 +36,3 @@ MVP
         Search by Genre
         Filter by Genre/Rating/Director/Actor/Actress
         Similar Films
-
-For Wednesday
-    Comeback with a crap webpage that does something related to your assigned area
