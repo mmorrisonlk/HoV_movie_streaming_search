@@ -1,8 +1,3 @@
-$(document).ready(function(){
-  $('.carousel').carousel();
-  popularMovies();
-});
-
 const searchAPI = "2ae52f27dbb481080bd1f2c839a0d6d7";
 
 function popularMovies() {
@@ -34,3 +29,8 @@ function popularMovies() {
     var instances2 = M.Carousel.init(elems2);
   });
 };
+
+$(document).ready(function(){
+  $('.carousel').carousel();
+  popularMovies();
+});
