@@ -71,7 +71,7 @@ function searchMovies(movies) {
                 <div class="col s12 m6">
                 <div class="card blue-grey darken-1">
                   <div class="card-content white-text">
-                    <span class="`+ i +` movieTitles"></span>
+                    <span id="`+ i +`movieTitles" class="card-title">Hello</span>
                     <p id="`+ i +`movieDescription"></div>
                   <div class="card-action">
                     <a href="#">This is a link</a>
@@ -96,13 +96,14 @@ function searchMovies(movies) {
                   
                 // }
 
-                movieTitle.text(searchedMovies + "text");
+                // movieTitle.text(searchedMovies + "text");
                 
                 // if (data.results[i].overview === null) {
                 //     document.getElementById(i + "movieDescription").innerHTML = "No description available";
                 // }
                 // else {
                 document.getElementById(i + "movieDescription").innerHTML = data.results[i].overview;
+                document.getElementById(i + "movieTitles").innerHTML = data.results[i].original_title;
                 // }
             // $(infoButton).on('click', function() {
             //     let elems = document.querySelector('.modal');
