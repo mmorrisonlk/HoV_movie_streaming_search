@@ -6,7 +6,8 @@ let moviesArea = $('#movie-container');
 let movieTitle = $('#movie-title');
 let moviePicture = $('#movie-picture');
 let movies="";
-let modalBody = $('.modal-content')
+let modalBody = $('.modal-content');
+var movieBlocks = document.getElementById("movieResults");
 
 function popularMovies() {
   const requestUrl = "https://api.themoviedb.org/3/movie/popular?api_key=" + searchAPI + "&language=en-US&page=1";
@@ -59,8 +60,9 @@ function searchMovies(movies) {
         })
         .then(function(data){
             console.log(data);
+            movieBlocks.innerHTML = "";
             for(var i = 0; i < data.results.length; i++) {
-                var movieBlocks = document.getElementById("movieResults")
+
                 let searchedMovies = data.results[i].original_title;
                 // let postersImages = data.results[i].poster_path;
                 
