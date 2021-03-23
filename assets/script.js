@@ -48,7 +48,7 @@ let modalBody = $('.modal-content')
 // let modalImages = $(".images")
 // let movieInformation = $(".movie-information")
 
-const searchAPI = "2ae52f27dbb481080bd1f2c839a0d6d7";
+// const searchAPI = "2ae52f27dbb481080bd1f2c839a0d6d7";
 
 searchButton.on('click', init);
 
