@@ -71,7 +71,8 @@ function searchMovies(movies) {
                 <div class="col s12 m6">
                 <div class="card blue-grey darken-1">
                   <div class="card-content white-text">
-                    <span id="`+ i +`movieTitles" class="card-title">Hello</span>
+                    <img id="`+ i +`posterImage"></img>
+                    <span id="`+ i +`movieTitles" class="card-title"></span>
                     <p id="`+ i +`movieDescription"></div>
                   <div class="card-action">
                     <a href="#">This is a link</a>
@@ -80,21 +81,22 @@ function searchMovies(movies) {
                 </div>
                 </div>
                 `
-                // let div = document.createElement('div');
-                // //jquery addclass or javascript classlist
-                // $(div).addClass("movie-div");
-                // // infoButton.textContent = 'Information'
+                let div = document.createElement('div');
+                //jquery addclass or javascript classlist
+                $(div).addClass("movie-div");
+                // infoButton.textContent = 'Information'
                 
                 // imagesToIndex.src= 'https://image.tmdb.org/t/p/w500/' + postersImages;
-                // // console.log(imagesToIndex);
-                // if(postersImages == null) {
-                //     moviePicture = [];
-                // } else {
-                //     $(div).append(imagesToIndex);
-                //     $(div).append(infoButton);
-                //     $('#movie-picture').append(div);
+                // console.log(imagesToIndex);
+                if(data.results[i].poster_path == null) {
+                    moviePicture = [];
+                } else {
+                  document.getElementById(i + "posterImage").src = 'https://image.tmdb.org/t/p/w500/' + data.results[i].poster_path;
+                    // $(div).append(imagesToIndex);
+                    // $(div).append(infoButton);
+                    // $('#movie-picture').append(div);
                   
-                // }
+                }
 
                 // movieTitle.text(searchedMovies + "text");
                 
