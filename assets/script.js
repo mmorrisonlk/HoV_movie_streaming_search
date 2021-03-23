@@ -60,46 +60,68 @@ function searchMovies(movies) {
         .then(function(data){
             console.log(data);
             for(var i = 0; i < data.results.length; i++) {
+                var movieBlocks = document.getElementById("movieResults")
                 let searchedMovies = data.results[i].original_title;
-                let postersImages = data.results[i].poster_path;
+                // let postersImages = data.results[i].poster_path;
+                
                 //    console.log(postersImages);
-                let imagesToIndex = document.createElement('img');
-                let infoButton = document.createElement('button');
-                let div = document.createElement('div');
-                //jquery addclass or javascript classlist
-                $(div).addClass("movie-div");
-                infoButton.textContent = 'Information'
+                // let imagesToIndex = document.createElement('img');
+                // let infoButton = document.createElement('button');
+                movieBlocks.innerHTML +=`
+                <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                  <div class="card-content white-text">
+                    <span class="`+ i +` movieTitles"></span>
+                    <p id="`+ i +`movieDescription"></div>
+                  <div class="card-action">
+                    <a href="#">This is a link</a>
+                    <a href="#">This is a link</a>
+                  </div>
+                </div>
+                </div>
+                `
+                // let div = document.createElement('div');
+                // //jquery addclass or javascript classlist
+                // $(div).addClass("movie-div");
+                // // infoButton.textContent = 'Information'
                 
-                imagesToIndex.src= 'https://image.tmdb.org/t/p/w500/' + postersImages;
-                // console.log(imagesToIndex);
-                if(postersImages == null) {
-                    moviePicture = [];
-                } else {
-                    $(div).append(imagesToIndex);
-                    $(div).append(infoButton);
-                    $('#movie-picture').append(div);
+                // imagesToIndex.src= 'https://image.tmdb.org/t/p/w500/' + postersImages;
+                // // console.log(imagesToIndex);
+                // if(postersImages == null) {
+                //     moviePicture = [];
+                // } else {
+                //     $(div).append(imagesToIndex);
+                //     $(div).append(infoButton);
+                //     $('#movie-picture').append(div);
                   
-                }
+                // }
 
-            $(infoButton).on('click', function() {
-                let elems = document.querySelector('.modal');
-                let instances = M.Modal.init(elems);
-                let modalTitle = document.createElement('h4');
-                let modalVideo = document.createElement('video');
-                let modalImages = document.createElement('images');
-                let modalInformation = document.createElement('information');
-                // for(var i = 0; i < data.results.length; i++) {
-                var videoPath = data.results.video
-                console.log(videoPath);
-                if(videoPath == false) {
-                    modalBody.append(searchedMovies);
-                } else {
-                            
-                }
-            // }
+                movieTitle.text(searchedMovies + "text");
                 
-                instances.open();
-            })
+                // if (data.results[i].overview === null) {
+                //     document.getElementById(i + "movieDescription").innerHTML = "No description available";
+                // }
+                // else {
+                document.getElementById(i + "movieDescription").innerHTML = data.results[i].overview;
+                // }
+            // $(infoButton).on('click', function() {
+            //     let elems = document.querySelector('.modal');
+            //     let instances = M.Modal.init(elems);
+            //     let modalTitle = document.createElement('h4');
+            //     let modalVideo = document.createElement('video');
+            //     let modalImages = document.createElement('images');
+            //     let modalInformation = document.createElement('information');
+            //     // for(var i = 0; i < data.results.length; i++) {
+            //     var videoPath = data.results.video
+            //     console.log(videoPath);
+            //     if(videoPath == false) {
+            //         modalBody.append(searchedMovies);
+            //     } else {
+                            
+            //     }
+                
+            //     instances.open();
+            // })
                    
             }       
         })
