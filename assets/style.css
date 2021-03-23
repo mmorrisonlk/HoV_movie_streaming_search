@@ -1,0 +1,39 @@
+:root {
+    --primary-color: #e50914;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  
+  img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    image-resolution: 100%;
+    width: 100px;
+  }
+  
+  .movie-div {
+    width: 180px;
+    background-color: rgb(173, 6, 6);
+    columns: 2;
+    flex: right;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  #search-input {
+   
+    width: 300px;
+  
+  }
+  
+  button {
+    margin: 1px 5px 5px 5px;
+  }
