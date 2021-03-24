@@ -1,4 +1,5 @@
 const searchAPI = "2ae52f27dbb481080bd1f2c839a0d6d7";
+const watchAPI = "wPaBpIHLEyhglS4raH1LguFDHh1P1JdoAj6vZCC6";
 let searchForm = $("#searchForm");
 let searchMovie = $('#search-input');
 let searchButton = $('.btn-info');
@@ -8,6 +9,8 @@ let moviePicture = $('#movie-picture');
 let movies="";
 let modalBody = $('.modal-content');
 var movieBlocks = document.getElementById("movieResults");
+var searchedMovies = "";
+var movieSources = "";
 
 function popularMovies() {
   const requestUrl = "https://api.themoviedb.org/3/movie/popular?api_key=" + searchAPI + "&language=en-US&page=1";
@@ -47,6 +50,7 @@ function init(event) {
     event.preventDefault();
     let movies = searchMovie.val();
     searchMovies(movies);
+    movieID(movies);
 }
 
 function searchMovies(movies) {
@@ -59,7 +63,7 @@ function searchMovies(movies) {
                 
         })
         .then(function(data){
-            console.log(data);
+            // console.log(data);
             movieBlocks.innerHTML = "";
             for(var i = 0; i < data.results.length; i++) {
 
@@ -131,3 +135,43 @@ function searchMovies(movies) {
             }       
         })
 }
+
+function movieID(movies) {
+    const searchUrl = "https://api.themoviedb.org/3/search/movie?api_key=" + searchAPI + "&language=en-US&page=1&query=" + searchMovie.val();
+
+    $.ajax({
+        url: searchUrl,
+        method: 'GET',
+      }).then(function (response) {
+        // console.log(response);
+        for(var i = 0; i < response.results.length; i++) {
+            let searchedMoviesID = response.results[i].id;
+            // console.log(searchedMoviesID);
+
+            const watchUrl = 'https://api.watchmode.com/v1/search/?apiKey=' + watchAPI +  '&search_field=tmdb_movie_id&search_value=' + searchedMoviesID;
+
+                $.ajax({
+                    url: watchUrl,
+                    method: 'GET',
+                }).then(function (response) {
+                    console.log(response);
+                    for(var i = 0; i < response.length; i++) {
+                        let watchModeId = response[i].title_results.id;
+                        console.log(watchModeId);
+
+                    const watchIdUrl = 'https://api.watchmode.com/v1/title/' + watchModeId + '/sources/?apiKey=' + watchAPI;
+
+                        $.ajax({
+                            url: watchIdUrl,
+                            method: 'GET',
+                        }).then(function (response) { 
+                            console.log(response);
+                            for(var i = 0; i < response.length; i++) {
+                            let movieSources = response[i];
+                            };
+                    });
+                };
+            });
+        };
+    });
+};
