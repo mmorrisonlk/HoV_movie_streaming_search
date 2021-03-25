@@ -41,6 +41,7 @@ $(document).ready(function(){
   popularMovies();
 });
 
+$(".dropdown-trigger").dropdown();
 searchButton.on('click', init);
 
 function init(event) {
@@ -75,7 +76,8 @@ function searchMovies(movies) {
                   <div class="card-content white-text">
                     <img id="`+ i +`posterImage"></img>
                     <span id="`+ i +`movieTitles" class="card-title"></span>
-                    <p id="`+ i +`movieDescription"></div>
+                    <p id="`+ i +`movieDescription"></p>
+                    </div>
                   <div class="card-action">
                     <a href="#">This is a link</a>
                     <a href="#">This is a link</a>
