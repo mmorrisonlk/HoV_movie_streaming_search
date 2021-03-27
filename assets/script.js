@@ -1,3 +1,5 @@
+// VARIABLES//
+
 const searchAPI = "2ae52f27dbb481080bd1f2c839a0d6d7";
 const watchAPI = "qLhxA5ohxomvRUeMjoEH4Nfun3H6Bwos6e8h5xtb";
 let searchForm = $("#searchForm");
