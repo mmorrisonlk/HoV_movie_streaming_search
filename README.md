@@ -9,6 +9,6 @@ The goal of the app was to address the following situation:
     I want to quickly find where the movie is streaming so
     I waste less time finding something to watch.
 
-![Deployed Site](https://github.com/mmorrisonlk/smu_code_quiz/blob/main/assets/pictures/streamingSearchLandingPage.png?raw=true "Landing Page")
+![Deployed Site](https://github.com/mmorrisonlk/smu_Project_One/blob/main/assets/pictures/streamingSearchLandingPage.png?raw=true "Landing Page")
 
-![Deployed Site](https://github.com/mmorrisonlk/smu_code_quiz/blob/main/assets/pictures/streamingSearchExampleSearch.png?raw=true "Example Search")
+![Deployed Site](https://github.com/mmorrisonlk/smu_Project_One/blob/main/assets/pictures/streamingSearchExampleSearch.png?raw=true "Example Search")
