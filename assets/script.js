@@ -104,21 +104,6 @@ function searchMovies(movies) {
     });
 };
 
-// function tmdbMovieID() {
-//     const searchUrl = "https://api.themoviedb.org/3/search/movie?api_key=" + searchAPI + "&language=en-US&page=1&query=" + searchMovie.val();
-
-//     $.ajax({
-//         url: searchUrl,
-//         method: 'GET',
-//     }).then(function (response) {
-//         searchedMoviesID = [];
-//         for (var i = 0; i < Math.min(response.results.length, 5); i++) {
-//             searchedMoviesID.push(data.results[i].id);
-//             watchmodeID(searchedMoviesID[i]);
-//         };
-//     });
-// };
-
 function watchmodeID(movieId) {
     const watchUrl = 'https://api.watchmode.com/v1/search/?apiKey=' + watchAPI + '&search_field=tmdb_movie_id&search_value=' + movieId;
 
