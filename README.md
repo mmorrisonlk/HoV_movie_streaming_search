@@ -12,3 +12,9 @@ The goal of the app was to address the following situation:
 ![Deployed Site](https://github.com/mmorrisonlk/smu_Project_One/blob/main/assets/pictures/streamingSearchLandingPage.png?raw=true "Landing Page")
 
 ![Deployed Site](https://github.com/mmorrisonlk/smu_Project_One/blob/main/assets/pictures/streaminSearchExampleSearch.png?raw=true "Example Search")
+
+Contributors:
+Justin Akers - https://github.com/Jakers811
+Jonathon Cole - https://github.com/Joncole818
+Kurtis Jin - https://github.com/KurtisJin
+Mark Morrison - https://github.com/mmorrisonlk
