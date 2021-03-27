@@ -12,8 +12,9 @@ var movieBlocks = document.getElementById("movieResults");
 var searchedMovies = "";
 var searchedMoviesID = "";
 var watchModeId = "";
-
 var movieSources = "";
+var sources = "";
+var SourcesName = "";
 
 function popularMovies() {
     const requestUrl = "https://api.themoviedb.org/3/movie/popular?api_key=" + searchAPI + "&language=en-US&page=1";
@@ -45,6 +46,7 @@ function popularMovies() {
 $(document).ready(function () {
     $('.carousel').carousel();
     popularMovies();
+    watchmodeSourcesSearch();
 });
 
 $(".dropdown-trigger").dropdown();
@@ -54,8 +56,6 @@ function init(event) {
     event.preventDefault();
     let movies = searchMovie.val();
     searchMovies(movies);
-    tmdbMovieID(movies);
-    console.log(searchedMoviesID);
 }
 
 function searchMovies(movies) {
@@ -65,19 +65,12 @@ function searchMovies(movies) {
     fetch(addedUrl)
         .then(function (response) {
             return response.json();
-
-        })
-        .then(function (data) {
-            // console.log(data);
+        }).then(function (data) {
             movieBlocks.innerHTML = "";
-            for (var i = 0; i < data.results.length; i++) {
+            for (var i = 0; i < Math.min(data.results.length, 5); i++) {
 
                 let searchedMovies = data.results[i].original_title;
-                // let postersImages = data.results[i].poster_path;
 
-                //    console.log(postersImages);
-                // let imagesToIndex = document.createElement('img');
-                // let infoButton = document.createElement('button');
                 movieBlocks.innerHTML += `
                 <div class="col s12 m6">
                 <div class="card blue-grey darken-1">
@@ -88,102 +81,80 @@ function searchMovies(movies) {
                     <p id="`+ i +`movieDescription"></p>
                     </div>
 
-                  <div class="card-action">
-                    <a href="#">This is a link</a>
-                    <a href="#">This is a link</a>
+                  <div class="card-action" id="`+ data.results[i].id +`sourceName">
                   </div>
                 </div>
                 </div>
-                `
-                let div = document.createElement('div');
-                //jquery addclass or javascript classlist
-                $(div).addClass("movie-div");
-                // infoButton.textContent = 'Information'
+                `;
 
-                // imagesToIndex.src= 'https://image.tmdb.org/t/p/w500/' + postersImages;
-                // console.log(imagesToIndex);
+                let div = document.createElement('div');
+
+                $(div).addClass("movie-div");
+
                 if (data.results[i].poster_path == null) {
                     moviePicture = [];
                 } else {
                     document.getElementById(i + "posterImage").src = 'https://image.tmdb.org/t/p/w500/' + data.results[i].poster_path;
-                    // $(div).append(imagesToIndex);
-                    // $(div).append(infoButton);
-                    // $('#movie-picture').append(div);
+                };
 
-                }
-
-                // movieTitle.text(searchedMovies + "text");
-
-                // if (data.results[i].overview === null) {
-                //     document.getElementById(i + "movieDescription").innerHTML = "No description available";
-                // }
-                // else {
                 document.getElementById(i + "movieDescription").innerHTML = data.results[i].overview;
                 document.getElementById(i + "movieTitles").innerHTML = data.results[i].original_title;
-                // }
-                // $(infoButton).on('click', function() {
-                //     let elems = document.querySelector('.modal');
-                //     let instances = M.Modal.init(elems);
-                //     let modalTitle = document.createElement('h4');
-                //     let modalVideo = document.createElement('video');
-                //     let modalImages = document.createElement('images');
-                //     let modalInformation = document.createElement('information');
-                //     // for(var i = 0; i < data.results.length; i++) {
-                //     var videoPath = data.results.video
-                //     console.log(videoPath);
-                //     if(videoPath == false) {
-                //         modalBody.append(searchedMovies);
-                //     } else {
-
-                //     }
-
-                //     instances.open();
-                // })
-
-            }
-        })
-}
-
-function tmdbMovieID() {
-    const searchUrl = "https://api.themoviedb.org/3/search/movie?api_key=" + searchAPI + "&language=en-US&page=1&query=" + searchMovie.val();
-
-    $.ajax({
-        url: searchUrl,
-        method: 'GET',
-    }).then(function (response) {
-        // response.results.length
-        for (var i = 0; i < Math.min(response.results.length, 5); i++) {
-            searchedMoviesID = response.results[i].id;
-            watchmodeID(searchedMoviesID);
-            // console.log(searchedMoviesID);
+                watchmodeID(data.results[i].id);
         };
     });
 };
 
-function watchmodeID(searchedMoviesID) {
-    const watchUrl = 'https://api.watchmode.com/v1/search/?apiKey=' + watchAPI + '&search_field=tmdb_movie_id&search_value=' + searchedMoviesID;
+function watchmodeID(movieId) {
+    const watchUrl = 'https://api.watchmode.com/v1/search/?apiKey=' + watchAPI + '&search_field=tmdb_movie_id&search_value=' + movieId;
 
     $.ajax({
         url: watchUrl,
         method: 'GET',
     }).then(function (response) {
+        watchModeId = [];
         for (var i = 0; i < response.title_results.length; i++) {
-            watchModeId = response.title_results[i].id;
-            console.log(watchModeId);
-            movieSource(watchModeId);
+            watchModeId.push(response.title_results[i].id);
+            movieSource(watchModeId[i], movieId);
         };
     });
 };
 
-function movieSource(watchModeId) {
-    console.log(watchModeId);
-    const watchIdUrl = 'https://api.watchmode.com/v1/title/' + watchModeId + '/sources/?apiKey=' + watchAPI + '&regions=US&type=sub';
+function movieSource(watchId, movieId) {
+    const watchIdUrl = 'https://api.watchmode.com/v1/title/' + watchId + '/sources/?apiKey=' + watchAPI + '&regions=US';
 
     $.ajax({
         url: watchIdUrl,
         method: 'GET',
     }).then(function (response) {
-        console.log(response);
-        movieSources = response;
+        movieSources = [];
+        let moviesName = [];
+        let sourceNameHtml = "";
+        for (var i = 0; i < response.length; i++) {
+            if (movieSources.indexOf(response[i].source_id)== -1) {
+                movieSources.push(response[i].source_id);
+                let sourceName = getMovieSourceName(response[i].source_id);
+                sourceNameHtml += `<a>`+ sourceName +`</a>`;
+            };
+        };
+
+        document.getElementById(movieId + "sourceName").innerHTML = sourceNameHtml;
+    });
+};
+
+function getMovieSourceName (sourceId) {
+    for (var i = 0; i < sources.length; i++) {
+        if (sourceId == sources[i].id)
+        return sources[i].name;
+    };
+};
+
+function watchmodeSourcesSearch() {
+    const sourcesUrl = "https://api.watchmode.com/v1/sources/?apiKey=" + watchAPI + "&types=subscription,purchase&regions=US";
+
+    $.ajax({
+        url: sourcesUrl,
+        method: 'GET',
+    }).then(function (response) {
+        sources = response;
     });
 };
