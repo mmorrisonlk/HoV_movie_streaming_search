@@ -11,4 +11,4 @@ The goal of the app was to address the following situation:
 
 ![Deployed Site](https://github.com/mmorrisonlk/smu_Project_One/blob/main/assets/pictures/streamingSearchLandingPage.png?raw=true "Landing Page")
 
-![Deployed Site](https://github.com/mmorrisonlk/smu_Project_One/blob/main/assets/pictures/streamingSearchExampleSearch.png?raw=true "Example Search")
+![Deployed Site](https://github.com/mmorrisonlk/smu_Project_One/blob/main/assets/pictures/streaminSearchExampleSearch.png?raw=true "Example Search")
