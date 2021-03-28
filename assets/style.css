@@ -12,14 +12,7 @@ body {
   font-family: Poppins;
 }
 
-/* body, html {
-  background-image: url('/Pictures/streaming.jpg');
-  background-position: center;
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
-/* } */
-
-/* navigation styling */
+/* NAVIGATION STYLING */
 
 #myVideo {
   position: fixed;
@@ -48,14 +41,11 @@ img {
   position:relative;
   border-radius: 50%;
   transform: translate(50%, 10%);
-  /* background: #2f3640; */
   width: 50%;
   align-items: center;
 }
 
 #search-input {
-  /* background-color: #2f3640; */
-  /* border-radius: 10%; */
   margin-right: .5%;
   margin-top:2%;
   margin-bottom: 5%;
@@ -90,59 +80,3 @@ img {
   color: #000;
 }
 
-
-
-/* /* #search-input {
- 
-  width: 300px !important;
-
-} */
-
-/* .search-box  {
-  position:relative !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  background: #2f3640 !important;
-  height: 40px !important;
-  border-radius: 40px !important;
-  padding: 10px !important;
-}
-
-.search-btn  {
-  color: #e84118 !important;
-  float: right !important;
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 50% !important;
-  background: #2f3640 !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  transition: 0.4s !important;
-}
-
-.search-box:hover > .search-txt  {
-  width: 240px !important;
-  padding: 0 6px !important;
-  
-} 
-
-.search-box:hover > .search-btn  { 
-
-  background: white !important;
-
-}
-
-.search.txt  {
-  border: none !important;
-  background: none !important;
-  outline: none !important;
-  float: left !important;
-  padding: 0 !important;
-  color: white !important;
-  font-size: 16px !important;
-  line-height: 40px !important;
-  width: 0px !important;
-
-}  */
