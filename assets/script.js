@@ -17,7 +17,10 @@ var watchModeId = "";
 var movieSources = "";
 var sources = "";
 var SourcesName = "";
+let pMovie = [];
+let mvie='';
 
+//CAROUSEL//
 function popularMovies() {
     const requestUrl = "https://api.themoviedb.org/3/movie/popular?api_key=" + searchAPI + "&language=en-US&page=1";
 
@@ -35,11 +38,11 @@ function popularMovies() {
             anchor.appendChild(image);
             banner.appendChild(anchor);
         };
-        // remove placeholder image
+        // REMOVE PLACEHOLDER IMAGE //
         var clean = document.getElementById("clean");
         clean.parentNode.removeChild(clean);
 
-        // Reinitialize carousel
+        // REINITIALIZE CAROUSEL //
         var elems2 = document.querySelectorAll('.carousel');
         var instances2 = M.Carousel.init(elems2);
     });
@@ -51,6 +54,7 @@ $(document).ready(function () {
     watchmodeSourcesSearch();
 });
 
+// SEARCH BUTTON //
 $(".dropdown-trigger").dropdown();
 searchButton.on('click', init);
 
@@ -60,6 +64,7 @@ function init(event) {
     searchMovies(movies);
 }
 
+// MAIN SEARCH FUNCTION TO PULL FROM TMDB INTO CARDS INCLUDING IMAGES //
 function searchMovies(movies) {
     let searchValue = searchMovie.val();
     const addedUrl = "https://api.themoviedb.org/3/search/movie?api_key=" + searchAPI + "&language=en-US&page=1&query=" + searchValue;
@@ -160,3 +165,5 @@ function watchmodeSourcesSearch() {
         sources = response;
     });
 };
+
+
