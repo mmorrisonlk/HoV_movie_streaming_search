@@ -1,6 +1,6 @@
-# smu_Project_One
+# HoV_movie_streaming_search
 
-https://mmorrisonlk.github.io/smu_Project_One/
+https://mmorrisonlk.github.io/HoV_movie_streaming_search/
 
 This streaming search website was created in Javascript with the assitance of Jquery, the movie DB API and the Watchmode API. The styling was done with Materialize assisting basic CSS.
 
