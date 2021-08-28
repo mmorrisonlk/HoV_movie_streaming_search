@@ -19,7 +19,6 @@ The goal of the app was to address the following situation:
 ## Description:
 Type in a movie title in the search bar and be able to find its information. 
 
-https://mmorrisonlk.github.io/HoV_movie_streaming_search/
 
 This streaming search website was created in Javascript with the assitance of Jquery, the movie DB API and the Watchmode API. The styling was done with Materialize assisting basic CSS.
 
@@ -33,23 +32,30 @@ please install the npm package in package.json
 N/A
 
 ## Website
-https://kurtis-fitness-tracker.herokuapp.com/
+https://mmorrisonlk.github.io/HoV_movie_streaming_search/
 
 ## Credits:
-Made by: Kurtis Jin
+Justin Akers - https://github.com/Jakers811
+Jonathon Cole - https://github.com/Joncole818
+Kurtis Jin - https://github.com/KurtisJin
+Mark Morrison - https://github.com/mmorrisonlk
 
 ## Licenses:
 1. Your Badge: ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 2. Your Badge link: <a href = "https://opensource.org/licenses/MIT">License Link</a>
 3. Your Badge Readme: <a href = "https://gist.github.com/ckib16/8732561535ed766cd6b8">MIT Guide</a>
 
+## Features:
+Interactive search bar. Carousel through popular movies. 
+
+## Contribute:
+Justin Akers, Jonathon Cole, Kurtis Jin, Mark Morrison
+
+## Test:
+Test was done using node.js with visual studio code and chrome.
 
 ![Deployed Site](https://github.com/mmorrisonlk/smu_Project_One/blob/main/assets/pictures/streamingSearchLandingPage.png?raw=true "Landing Page")
 
 ![Deployed Site](https://github.com/mmorrisonlk/smu_Project_One/blob/main/assets/pictures/streaminSearchExampleSearch.png?raw=true "Example Search")
 
-Contributors:
-Justin Akers - https://github.com/Jakers811
-Jonathon Cole - https://github.com/Joncole818
-Kurtis Jin - https://github.com/KurtisJin
-Mark Morrison - https://github.com/mmorrisonlk
+
