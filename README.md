@@ -35,10 +35,10 @@ N/A
 https://mmorrisonlk.github.io/HoV_movie_streaming_search/
 
 ## Credits:
-Justin Akers - https://github.com/Jakers811
-Jonathon Cole - https://github.com/Joncole818
-Kurtis Jin - https://github.com/KurtisJin
-Mark Morrison - https://github.com/mmorrisonlk
+1. Justin Akers - https://github.com/Jakers811
+2. Jonathon Cole - https://github.com/Joncole818
+3. Kurtis Jin - https://github.com/KurtisJin
+4. Mark Morrison - https://github.com/mmorrisonlk
 
 ## Licenses:
 1. Your Badge: ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
